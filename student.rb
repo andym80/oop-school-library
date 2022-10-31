@@ -1,5 +1,5 @@
 class Student < Person
-  def intialize(id, classroom)
+  def initialize(id, classroom)
     @id = id
     @classroom = classroom
   end
