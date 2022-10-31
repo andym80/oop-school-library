@@ -4,8 +4,8 @@ class Teacher < Person
   def initialize(specialization)
     @specialization = specialization
     super()
-    age,
-    name,
-    parent_permission = true
+    _age,
+    _name,
+    _parent_permission = true
   end
 end
