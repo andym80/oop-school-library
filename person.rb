@@ -1,5 +1,5 @@
 class Person
-  def initialize(id, name, age)
+  def initialize(id, age, name = 'Unknown')
     @id = id
     @name = name
     @age = age
