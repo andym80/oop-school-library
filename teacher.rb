@@ -5,8 +5,8 @@ class Teacher < Person
     @specialization = specialization
     super(
       age,
-    name,
-    parent_permission
+      name,
+      parent_permission
     )
   end
 end
