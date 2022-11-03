@@ -3,6 +3,10 @@ require_relative './rental'
 require_relative './student'
 require_relative './teacher'
 require_relative './person'
+require_relative './decorator_capitalize'
+require_relative './decorator_trimmer'
+require_relative './decorator_base'
+require_relative './nameable'
 
 class App
   attr_reader :books, :people, :rentals
