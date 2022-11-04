@@ -1,7 +1,7 @@
 require_relative './app'
 
 def main
-  app = new.app
+  app = App.new
   exit_button = true
   puts '\nWelcome to School Library App!'
   while exit_button
@@ -42,3 +42,4 @@ def main
     end
   end
 end
+main

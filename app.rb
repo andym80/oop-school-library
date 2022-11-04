@@ -12,14 +12,19 @@ class App
   attr_reader :books, :people, :rentals
 
   def initialize()
-    @books = SaveFiles.load_books
-    @people = SaveFiles.load_people
-    @rentals = SaveFiles.load_rentals
+    @books = []
+    @people = []
+    @rentals = []
   end
 
   def list_books
-    @books.each do |book|
-      p "Title: #{book.title}, Author: #{book.author}"
+    if @books.empty?
+      p 'No books found'
+    else
+      @books.each do |book, index|
+        p "Book #{index}: \"#{book.title}\" by #{book.author}"
+      end
+      p "\n[#{index}] Title: \"#{book.author}"" by #{book.title}\", #{book.rentals.length} rentals"
     end
   end
 
