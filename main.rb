@@ -33,7 +33,7 @@ def main
     when '5'
       app.create_rental
     when '6'
-      app.list_rentals_by_person_id
+      app.list_rentals
     when '7'
       puts 'Thank you for using this app!'
       exit_button = false

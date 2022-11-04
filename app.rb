@@ -106,7 +106,7 @@ class App
 
   def list_rentals
     p 'ID of the person:'
-    id = gets.chomp
+    id = gets.chomp.to_i
     rentals = @rentals.filter { |rental| rental.person.id == id }
     puts 'Rentals:'
     rentals.each do |rental|
