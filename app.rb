@@ -73,12 +73,12 @@ class App
 
   def create_teacher
     p 'Age:'
-    age = gets.chomp
+    age = gets.chomp.to_i
     p 'Name:'
-    name = gets.chomp
+    name = gets.chomp.capitalize
     p 'Specialization:'
-    specialization = gets.chomp
-    teacher = Teacher.new(age, specialization, name)
+    specialization = gets.chomp.capitalize
+    teacher = Teacher.new( age, name, specialization)
     @people.push(teacher)
     p 'Person created successfully'
   end
