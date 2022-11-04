@@ -7,6 +7,7 @@ require_relative './decorator_capitalize'
 require_relative './decorator_trimmer'
 require_relative './decorator_base'
 require_relative './nameable'
+require_relative './classroom'
 
 class App
   attr_reader :books, :people, :rentals
@@ -15,16 +16,16 @@ class App
     @books = []
     @people = []
     @rentals = []
+    @classroom = []
   end
 
   def list_books
     if @books.empty?
-      p 'No books found'
+      puts 'There are no books in the library'
     else
-      @books.each do |book, index|
-        p "Book #{index}: \"#{book.title}\" by #{book.author}"
+      @books.each do |book|
+        puts "Title: \"#{book.title}\", Author: #{book.author}"
       end
-      p "\n[#{index}] Title: \"#{book.author}"" by #{book.title}\", #{book.rentals.length} rentals"
     end
   end
 
@@ -40,7 +41,7 @@ class App
 
   def list_people
     @people.each do |person|
-      p "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      p "[#{person.class}]Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
   end
 
@@ -65,7 +66,7 @@ class App
     p 'Has parent permission? [Y/N]'
     parent_permission = gets.chomp
     parent_permission = parent_permission.casecmp('y').zero?
-    student = Student.new(age, name, parent_permission)
+    student = Student.new(parent_permission, age, name)
     @people.push(student)
     p 'Person created successfully'
   end
@@ -83,13 +84,22 @@ class App
   end
 
   def create_rental
+    puts 'Select a book from the following list by number'
+    @books.each_with_index do |book, index|
+    puts "#{index}) #{book} Title: #{book.title}, Author: #{book.author}"
+    end
+    puts 'Select a person from the following list by number (not id)'
+    puts '========================================================================'
+    @people.each_with_index do |person, index|
+    puts "#{index}) #{person} Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
     p 'ID of the person:'
-    person_id = gets.chomp
+    person_id = gets.chomp.to_i
     p 'ID of the book:'
-    book_id = gets.chomp
+    book_id = gets.chomp.to_i
     p 'Date:'
     date = gets.chomp
-    rental = Rental.new(date, book_id, person_id)
+    rental = Rental.new(date, @books[book_id], @people[person_id])
     @rentals.push(rental)
     p 'Rental created successfully'
   end
