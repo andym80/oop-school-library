@@ -73,12 +73,12 @@ class App
 
   def create_teacher
     p 'Age:'
-    age = gets.chomp
+    age = gets.chomp.to_i
     p 'Name:'
-    name = gets.chomp
+    name = gets.chomp.capitalize
     p 'Specialization:'
-    specialization = gets.chomp
-    teacher = Teacher.new(age, specialization, name)
+    specialization = gets.chomp.capitalize
+    teacher = Teacher.new( age, name, specialization)
     @people.push(teacher)
     p 'Person created successfully'
   end
@@ -106,7 +106,7 @@ class App
 
   def list_rentals
     p 'ID of the person:'
-    id = gets.chomp
+    id = gets.chomp.to_i
     rentals = @rentals.filter { |rental| rental.person.id == id }
     puts 'Rentals:'
     rentals.each do |rental|
@@ -114,3 +114,4 @@ class App
     end
   end
 end
+
