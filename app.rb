@@ -78,7 +78,7 @@ class App
     name = gets.chomp.capitalize
     p 'Specialization:'
     specialization = gets.chomp.capitalize
-    teacher = Teacher.new( age, name, specialization)
+    teacher = Teacher.new(age, name, specialization)
     @people.push(teacher)
     p 'Person created successfully'
   end
@@ -86,12 +86,12 @@ class App
   def create_rental
     puts 'Select a book from the following list by number'
     @books.each_with_index do |book, index|
-    puts "#{index}) #{book} Title: #{book.title}, Author: #{book.author}"
+      puts "#{index}) #{book} Title: #{book.title}, Author: #{book.author}"
     end
     puts 'Select a person from the following list by number (not id)'
     puts '========================================================================'
     @people.each_with_index do |person, index|
-    puts "#{index}) #{person} Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      puts "#{index}) #{person} Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
     p 'ID of the person:'
     person_id = gets.chomp.to_i
@@ -114,4 +114,3 @@ class App
     end
   end
 end
-
