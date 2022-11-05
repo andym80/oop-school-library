@@ -1,4 +1,3 @@
-# main.rb
 require 'pry'
 require_relative 'handlers'
 require './book_ui'
@@ -29,7 +28,7 @@ class App
 
     puts 'Thank you for using this app!'
   end
-
+  binding.pry
   def handle_option(option)
     case option
     when '1'
@@ -68,3 +67,4 @@ def main
 end
 
 main
+
