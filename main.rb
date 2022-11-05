@@ -1,3 +1,5 @@
+# main.rb
+require 'pry'
 require_relative 'handlers'
 require './book_ui'
 require './person_ui'
